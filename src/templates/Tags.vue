@@ -45,8 +45,8 @@
   </Layout>
 </template>
 <page-query>
-query ($page: Int) {
-  allStrapiPost(perPage: 10, page: $page) @paginate {
+query ($page: Int, $id: String) {
+  allStrapiPost(perPage: 10, page: $page, filter: {types: {id: {in: [$id]}}}) @paginate {
     pageInfo {
       totalPages
       currentPage
